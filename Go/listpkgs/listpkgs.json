@@ -1,0 +1,9 @@
+{
+    "github.com": "${GOPATH}\\src\\github.com",
+    "golang.org": "${GOPATH}\\src\\golang.org\\x\\tools\\cmd",
+    "standardpkgs": "${GOROOT}\\src",
+    "ignoreFolderNames": [
+        // Must set your Github-name
+        // Only folder-names. Don't set Pathes.
+    ]
+}
