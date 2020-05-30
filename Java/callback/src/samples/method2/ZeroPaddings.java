@@ -72,7 +72,7 @@ public class ZeroPaddings implements Callback {
         }
         return nLen;
     }
-    
+
 
     public static class ArgsTestCannotBeCalled implements CallbackArgsInterface {
         int a;
@@ -92,7 +92,7 @@ public class ZeroPaddings implements Callback {
         System.out.println(args.getA() + args.getB());
     }
     @CallbackMethod
-    private void testCannotBeCalledPrivate(ArgsTestCannotBeCalled args) {
-        System.out.println(args.getA() + args.getB());
+    private int testCannotBeCalledPrivate(ArgsTestCannotBeCalled args) { // public
+        return args.getA() + args.getB();
     }
 }

@@ -1,7 +1,6 @@
 package src.samples.method2.callback;
 
 import java.lang.reflect.*;
-
 import src.samples.method2.callback.annotations.CallbackMethod;
 import src.samples.method2.callback.exceptions.CannotRunPrivateCallbackException;
 import src.samples.method2.callback.exceptions.NoAnnotationException;
@@ -45,5 +44,25 @@ public interface Callback {
             e.printStackTrace();
         }
     }
-}
 
+    public default Object callbackHasReturn(String methodName, CallbackArgsInterface args) throws NoAnnotationException, CannotRunPrivateCallbackException {
+        try {
+            Class<?> callbackClass = Class.forName(this.getClass().getName());
+            Object callbackInstance = callbackClass.newInstance();
+
+            Method callbackMethod = callbackClass.getMethod(methodName, args.getClass());
+            if (!callbackMethod.isAnnotationPresent(CallbackMethod.class)) {
+                throw new NoAnnotationException("NoAnnotationException: Called method without annotation '@CallbackMethod'.");
+            }
+            return (Object)callbackMethod.invoke(callbackInstance, args);
+        } catch (NoAnnotationException e) {
+            throw e;
+        } catch (NoSuchMethodException e) {
+            throw new CannotRunPrivateCallbackException("CannotRunPrivateCallbackException: Called private callback.");
+        } catch(Exception e) { // Simple Exception
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+}

@@ -18,6 +18,20 @@ public class Timer {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        
+    }
+
+    @CallerMethod
+    public void nanoTimerWithCallbackHasReturn(Callback callbackInstance, String methodName, CallbackArgsInterface args) {
+        try { // NoAnnotationExceptionのためのtry-catch必要
+            double start = System.nanoTime();
+            // ここでコールバックメソッド実行
+            int res = (int)callbackInstance.callbackHasReturn(methodName, args);
+            System.out.println(res);
+            System.out.println((System.nanoTime() - start) / 1__000__000__000);
+            System.out.println("--------------------------------");
+        } catch(NoAnnotationException | CannotRunPrivateCallbackException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
