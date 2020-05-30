@@ -138,3 +138,6 @@ public interface Callback {
 
 // リフレクションでフィールドのアノテーションの有無を調べる
 // https://java-beginner.com/reflect-field-annotation-present/
+
+// Class.cast()について調べてみた
+// https://yoshida-eth0.hatenablog.com/entry/20101215/1292358698

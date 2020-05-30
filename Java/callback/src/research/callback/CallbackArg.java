@@ -1,4 +1,4 @@
-package src.callback;
+package src.research.callback;
 
 // public class CallbackArg {
 //     private final Class<?> TYPE;

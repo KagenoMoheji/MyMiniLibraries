@@ -1,4 +1,4 @@
-package src.callback;
+package src.research.callback;
 
 /**
  * コールする側は引数のargTypesに，例えば[String.class, Integer.class]という感じに書く
