@@ -8,7 +8,8 @@ public class ZeroPaddings implements Callback {
     コールバック関数にして好きなタイミングで実行させたいメソッドを集めたクラス．
     今回はゼロ埋めの速度比較コード(時間計測処理の間に実行させたい)．
     */
-    public void zeroPadding1(HashMap<String, Integer> args) throws Exception { // int l, int n
+    // Callback Method
+    public void zeroPadding1(HashMap<String, Integer> args) throws Exception { // Integer l, Integer n
         // ここで，引数の有無判定と引数の型判定を行わないといけない
         // あるいは，引数の型指定でObjectのところを特定の型に指定．そうすると全ての引数に置いて1種類の型しか受け付けなくなってしまう
         // 処理速度測る上ではこのコード邪魔
@@ -18,7 +19,8 @@ public class ZeroPaddings implements Callback {
         System.out.println(String.format("%0" + args.get("l") + "d", args.get("n")));
     }
 
-    public void zeroPadding2(HashMap<String, Integer> args) throws Exception { // int l, int n
+    // Callback Method
+    public void zeroPadding2(HashMap<String, Integer> args) throws Exception { // Integer l, Integer n
         // ここで，引数の有無判定と引数の型判定を行わないといけない
         // あるいは，引数の型指定でObjectのところを特定の型に指定．そうすると全ての引数に置いて1種類の型しか受け付けなくなってしまう
         // 処理速度測る上ではこのコード邪魔
@@ -30,7 +32,8 @@ public class ZeroPaddings implements Callback {
         System.out.println(preStr + args.get("n"));
     }
 
-    public void zeroPadding3(HashMap<String, Integer> args) throws Exception {
+    // Callback Method
+    public void zeroPadding3(HashMap<String, Integer> args) throws Exception { // Integer l, Integer n
         // ここで，引数の有無判定と引数の型判定を行わないといけない
         // あるいは，引数の型指定でObjectのところを特定の型に指定．そうすると全ての引数に置いて1種類の型しか受け付けなくなってしまう
         // 処理速度測る上ではこのコード邪魔
@@ -42,7 +45,8 @@ public class ZeroPaddings implements Callback {
         System.out.println(preStr + args.get("n"));
     }
 
-    public void zeroPadding4(HashMap<String, Integer> args) throws Exception {
+    // Callback Method
+    public void zeroPadding4(HashMap<String, Integer> args) throws Exception { // Integer l, Integer n
         // ここで，引数の有無判定と引数の型判定を行わないといけない
         // あるいは，引数の型指定でObjectのところを特定の型に指定．そうすると全ての引数に置いて1種類の型しか受け付けなくなってしまう
         // 処理速度測る上ではこのコード邪魔

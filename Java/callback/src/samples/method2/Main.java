@@ -24,6 +24,9 @@ public class Main {
             callbackInstance,
             "zeroPadding4",
             new ArgsZeroPaddingUseClass(20, 100));
+        
+        // ArgsZeroPaddingUseClass a = new ArgsZeroPaddingUseClass(20, 100);
+        // System.out.println(a.getN()); // スコープエラー
     }
 }
 

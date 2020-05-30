@@ -132,3 +132,6 @@ public interface Callback {
 
 // No enclosing instance of type Hoge is accessible.
 // https://qiita.com/watanabk/items/738988fac29e1e1d8d88#fuga-%E3%82%92-static-%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AB%E3%81%99%E3%82%8B
+
+// javaの内部クラスおさらい
+// https://qiita.com/liguofeng29/items/6cafca5bf92e0381ee42#static%E5%86%85%E9%83%A8%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E7%89%B9%E5%BE%B4

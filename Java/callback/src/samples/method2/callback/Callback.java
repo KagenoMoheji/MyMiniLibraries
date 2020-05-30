@@ -9,8 +9,9 @@ public interface Callback {
      * 
      *  ※1：コールバックメソッドの引数を定義する内部クラスはpublic staticであるべし．
      *  ※2：※1で定義する内部クラスは，インタフェースArgsUseClassInterfaceを実装しているべし．
-     *  ※3：コールバックメソッドの引数には，※1で定義した内部クラスを型にすべし．
-     *  ※4：コールバックを呼び出す側で引数を設定する際は，※1で定義する内部クラスのインスタンスを用いるべし．
+     *  ※3：※1で定義する内部クラスのプロパティとgetterはprivateであるべし(内包しているクラスからはアクセスできるので)．
+     *  ※4：コールバックメソッドの引数には，※1で定義した内部クラスを型にすべし．
+     *  ※5：コールバックを呼び出す側で引数を設定する際は，※1で定義する内部クラスのインスタンスを用いるべし．
      *  
      * @param methodName
      * @param args
@@ -19,6 +20,7 @@ public interface Callback {
         try {
             // ↓コールバックを呼び出している側で，Callbackインタフェースを実装したクラスでインスタンス化されている場合に，そのクラスのクラス名が取得されるはず
             // System.out.println(this.getClass());
+            // System.out.println(Callback.class);
             // ↓コールバックを呼び出している側で，CallbackArgsInterfaceインタフェースを実装した内部クラスで引数を渡されている場合に，内部クラスのクラス名が取得されるはず
             // System.out.println(args.getClass());
 
