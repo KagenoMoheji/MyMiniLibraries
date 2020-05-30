@@ -76,7 +76,7 @@
             - `callback.annotations.CallerMethod`
             - `callback.exceptions.*`
         - Pepaere caller methods(ex. `callerSample()`).
-            - Add annotation `@CallbackMethod`(It doesn't matter if you don't add now).
+            - Add annotation `@CallerMethod`(It doesn't matter if you don't add now).
             - Set `Calllback callbackInterface`, `String methodName`, and `CallbackArgsInterface args` to the arguments of caller method.
             - Add try-catch to get exceptions `NoAnnotationException` or `CannotRunPrivateCallbackException`.
             - In try-catch, you can implement callback method.
