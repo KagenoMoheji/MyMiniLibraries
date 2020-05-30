@@ -109,4 +109,4 @@
         - Run caller by setting arguments following.
             - `Callback callbackInstance`: Set materialized callback class.
             - `String methodName`: Set name of callback method.
-            - `CallbackArgsInterface args`: Materialize inner class(type of arguments for callback method) prepared at '2.' and set arguments for callback mathod.
+            - `CallbackArgsInterface args`: Materialize inner class(type of arguments for callback method) prepared at '2.' and set arguments for callback method.
