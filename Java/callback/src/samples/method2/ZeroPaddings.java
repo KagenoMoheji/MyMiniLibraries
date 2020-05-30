@@ -8,10 +8,10 @@ public class ZeroPaddings implements Callback {
     今回はゼロ埋めの速度比較コード(時間計測処理の間に実行させたい)．
     */
     // Common argumens of callback methods
-    public static class ArgsZeroPaddingUseClass implements CallbackArgsInterface {
+    public static class ArgsZeroPadding implements CallbackArgsInterface {
         private int l;
         private int n;
-        ArgsZeroPaddingUseClass(int l, int n) {
+        ArgsZeroPadding(int l, int n) {
             this.l = l;
             this.n = n;
         }
@@ -27,26 +27,26 @@ public class ZeroPaddings implements Callback {
     }
 
     // Callback Method
-    public void zeroPadding1(ArgsZeroPaddingUseClass args) {
+    public void zeroPadding1(ArgsZeroPadding args) {
         System.out.println(String.format("%0" + args.getL() + "d", args.getN()));
     }
 
     // Callback Method
-    public void zeroPadding2(ArgsZeroPaddingUseClass args) {
+    public void zeroPadding2(ArgsZeroPadding args) {
         int nLen = (int)Math.log10((double)args.getN()) + 1;
         String preStr = (nLen >= args.getL()) ? "" : repeatStr("0", args.getL() - nLen);
         System.out.println(preStr + args.getN());
     }
 
     // Callback Method
-    public void zeroPadding3(ArgsZeroPaddingUseClass args) {
+    public void zeroPadding3(ArgsZeroPadding args) {
         int nLen = Integer.toString(args.getN()).length();
         String preStr = (nLen >= args.getL()) ? "" : repeatStr("0", args.getL() - nLen);
         System.out.println(preStr + args.getN());
     }
 
     // Callback Method
-    public void zeroPadding4(ArgsZeroPaddingUseClass args) {
+    public void zeroPadding4(ArgsZeroPadding args) {
         int nLen = getNumLenWithDividing10(args.getN());
         String preStr = (nLen >= args.getL()) ? "" : repeatStr("0", args.getL() - nLen);
         System.out.println(preStr + args.getN());
