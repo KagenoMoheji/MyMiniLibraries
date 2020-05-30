@@ -1,6 +1,4 @@
-# MoheFuncs-PHP
-PHP functions I wrote. I'll update this class "MoheFuncs" when I write new PHP functions.
-
+# MergeChildInAssocArray
 
 ## Set up
 1. Download `MoheFuncs.php`.
