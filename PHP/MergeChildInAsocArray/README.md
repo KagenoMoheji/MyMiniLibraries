@@ -17,7 +17,7 @@ $mf = new MoheFuncs();
 ## Functions
 ### 1. MergeChildInAssocArray
 - Japanese description is written in my blog below.  
-[【PHP】共通キーのバリューを合併する関数を自作した](https://www.shadowmoheji.gq/article.php?link=d13)
+[【PHP】共通キーのバリューを合併する関数を自作した](https://www.shadowmoheji.ml/article.php?link=d13)
 
 - Because there may be not a function that can merge "child(the second)" arrays, I wrote this function.
 

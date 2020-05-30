@@ -58,7 +58,7 @@ public class ZeroPaddings implements Callback {
         System.out.println(preStr + args.get("n"));
     }
 
-    public String repeatStr(String str, int repeatNum) {
+    private String repeatStr(String str, int repeatNum) {
         String res = "";
         if(repeatNum == 0) {
             return res;
@@ -69,7 +69,7 @@ public class ZeroPaddings implements Callback {
         return res;
     }
 
-    public static int getNumLenWithDividing10(int n) {
+    private int getNumLenWithDividing10(int n) {
         int nLen = 0;
         while(n != 0) {
             n /= 10;

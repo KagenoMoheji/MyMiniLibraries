@@ -1,6 +1,7 @@
 package src.samples.method2;
 
 import src.samples.method2.callback.*;
+import src.samples.method2.callback.annotations.CallbackMethod;
 
 public class ZeroPaddings implements Callback {
     /*
@@ -26,33 +27,33 @@ public class ZeroPaddings implements Callback {
         }
     }
 
-    // Callback Method
+    @CallbackMethod
     public void zeroPadding1(ArgsZeroPadding args) {
         System.out.println(String.format("%0" + args.getL() + "d", args.getN()));
     }
 
-    // Callback Method
+    @CallbackMethod
     public void zeroPadding2(ArgsZeroPadding args) {
         int nLen = (int)Math.log10((double)args.getN()) + 1;
         String preStr = (nLen >= args.getL()) ? "" : repeatStr("0", args.getL() - nLen);
         System.out.println(preStr + args.getN());
     }
 
-    // Callback Method
+    @CallbackMethod
     public void zeroPadding3(ArgsZeroPadding args) {
         int nLen = Integer.toString(args.getN()).length();
         String preStr = (nLen >= args.getL()) ? "" : repeatStr("0", args.getL() - nLen);
         System.out.println(preStr + args.getN());
     }
 
-    // Callback Method
+    @CallbackMethod
     public void zeroPadding4(ArgsZeroPadding args) {
         int nLen = getNumLenWithDividing10(args.getN());
         String preStr = (nLen >= args.getL()) ? "" : repeatStr("0", args.getL() - nLen);
         System.out.println(preStr + args.getN());
     }
 
-    public String repeatStr(String str, int repeatNum) {
+    private String repeatStr(String str, int repeatNum) {
         String res = "";
         if(repeatNum == 0) {
             return res;
@@ -63,12 +64,35 @@ public class ZeroPaddings implements Callback {
         return res;
     }
 
-    public static int getNumLenWithDividing10(int n) {
+    private int getNumLenWithDividing10(int n) {
         int nLen = 0;
         while(n != 0) {
             n /= 10;
             nLen++;
         }
         return nLen;
+    }
+    
+
+    public static class ArgsTestCannotBeCalled implements CallbackArgsInterface {
+        int a;
+        int b;
+        ArgsTestCannotBeCalled(int a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+        private int getA() {
+            return this.a;
+        }
+        private int getB() {
+            return this.b;
+        }
+    }
+    public void testCannotBeCalledPublicWithoutAnnotation(ArgsTestCannotBeCalled args) {
+        System.out.println(args.getA() + args.getB());
+    }
+    @CallbackMethod
+    private void testCannotBeCalledPrivate(ArgsTestCannotBeCalled args) {
+        System.out.println(args.getA() + args.getB());
     }
 }

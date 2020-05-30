@@ -101,7 +101,7 @@ public interface Callback {
 // https://blog.java-reference.com/java-class-getname/
 
 // Getting the name of a sub-class from within a super-class(スーパークラス内からサブクラスの名前を取得する)
-// https://stackoverflow.com/a/3417967(https://www.it-swarm.dev/ja/java/%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9%E5%86%85%E3%81%8B%E3%82%89%E3%82%B5%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E5%90%8D%E5%89%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B/969051543/)
+// https://stackoverflow.com/questions/3417879/getting-the-name-of-a-sub-class-from-within-a-super-class
 
 // インターフェースのデフォルトメソッド
 // http://www.ne.jp/asahi/hishidama/home/tech/java/interface.html#h_default_method
@@ -135,3 +135,6 @@ public interface Callback {
 
 // javaの内部クラスおさらい
 // https://qiita.com/liguofeng29/items/6cafca5bf92e0381ee42#static%E5%86%85%E9%83%A8%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E7%89%B9%E5%BE%B4
+
+// リフレクションでフィールドのアノテーションの有無を調べる
+// https://java-beginner.com/reflect-field-annotation-present/
