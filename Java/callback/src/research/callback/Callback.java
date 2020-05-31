@@ -141,3 +141,6 @@ public interface Callback {
 
 // Class.cast()について調べてみた
 // https://yoshida-eth0.hatenablog.com/entry/20101215/1292358698
+
+// Can I get all methods of a class?
+// https://stackoverflow.com/a/5266548

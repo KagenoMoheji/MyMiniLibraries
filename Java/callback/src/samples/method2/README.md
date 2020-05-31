@@ -111,3 +111,10 @@
             - `Callback callbackInstance`: Set materialized callback class.
             - `String methodName`: Set name of callback method.
             - `CallbackArgsInterface args`: Materialize inner class(type of arguments for callback method) prepared at '2.' and set arguments for callback method.
+
+## Other methods of interface `Callback`
+- `getCallbackNames(): ArrayList<String>`
+    - This method returns callback(method with annotation `@CallbackMethod`) names list.
+    - What can you do with this?
+        - You can run multiple callbacks with a for loop using callback names list got with this method.  
+        For example, when you want compare the processing speed.

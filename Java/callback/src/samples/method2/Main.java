@@ -57,7 +57,7 @@ public class Main {
         timer.nanoTimer(
             callbackInstance,
             "zeroPadding1",
-            new ArgsTestOverload(20, 1020553, "Hello!"));
+            new ArgsTestOverload(20, 1020553, "Hello!")); // 引数定義クラスを変えるだけ
     }
 }
 
