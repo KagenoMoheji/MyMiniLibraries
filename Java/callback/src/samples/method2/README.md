@@ -1,5 +1,6 @@
 # Callback with arguments in Java
 - Using interface and inner class.
+- Article: [【Java】オブジェクト指向のコールバック実装を考えてみる](https://www.shadowmoheji.ml/article.php?link=d28)
 
 ## How to use
 1. Copy `callback/`.
