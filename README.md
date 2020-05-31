@@ -8,7 +8,7 @@ My public mini-libraries
 - MyLibraries/
     - Java/
         - [callback/](https://github.com/KagenoMoheji/MyMiniLibraries/tree/master/Java/callback/src)
-            - []()
+            - [【Java】オブジェクト指向のコールバック実装を考えてみる](https://www.shadowmoheji.ml/article.php?link=d28)
     - Python/
         - [clusters-interpreter]()
             - []()
