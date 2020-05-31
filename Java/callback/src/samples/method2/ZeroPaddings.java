@@ -12,7 +12,7 @@ public class ZeroPaddings implements Callback {
     public static class ArgsZeroPadding implements CallbackArgsInterface {
         private int l;
         private int n;
-        ArgsZeroPadding(int l, int n) {
+        public ArgsZeroPadding(int l, int n) {
             this.l = l;
             this.n = n;
         }
@@ -94,5 +94,34 @@ public class ZeroPaddings implements Callback {
     @CallbackMethod
     private int testCannotBeCalledPrivate(ArgsTestCannotBeCalled args) { // public
         return args.getA() + args.getB();
+    }
+
+
+    public static class ArgsTestOverload implements CallbackArgsInterface {
+        private int l;
+        private int n;
+        private String s;
+        public ArgsTestOverload(int l, int n, String s) {
+            this.l = l;
+            this.n = n;
+            this.s = s;
+        }
+        private int getL() {
+            /**
+             * 内部クラスのprivateメソッドは包括クラスで使えるが，外部クラスからはアクセスできない
+             */
+            return this.l;
+        }
+        private int getN() {
+            return this.n;
+        }
+        private String getS() {
+            return this.s;
+        }
+    }
+    @CallbackMethod
+    public void zeroPadding1(ArgsTestOverload args) {
+        System.out.println(String.format("%0" + args.getL() + "d", args.getN()));
+        System.out.println("Overload: " + args.getS());
     }
 }

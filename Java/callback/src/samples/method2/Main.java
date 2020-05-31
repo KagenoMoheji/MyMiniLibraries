@@ -1,8 +1,8 @@
 package src.samples.method2;
 
+import java.util.ArrayList;
 import src.samples.method2.callback.*;
-import src.samples.method2.ZeroPaddings.ArgsZeroPadding;
-import src.samples.method2.ZeroPaddings.ArgsTestCannotBeCalled;
+import src.samples.method2.ZeroPaddings.*; // コールバックの引数の型定義の取得
 
 public class Main {
     public static void main(String[] args) {
@@ -42,6 +42,22 @@ public class Main {
         //     callbackInstance,
         //     "testCannotBeCalledPrivate",
         //     new ArgsTestCannotBeCalled(5, 6));
+
+        // @CallbackMethodがあるコールバックを一括実行するサンプル
+        ArrayList<String> callbackNames = callbackInstance.getCallbackNames();
+        for(String callbackName: callbackNames) {
+            System.out.println("-----------------[" + callbackName + "]-----------------");
+            timer.nanoTimer(
+                callbackInstance,
+                callbackName,
+                new ArgsZeroPadding(20, 1020553));
+        }
+
+        // オーバーロードのテスト
+        timer.nanoTimer(
+            callbackInstance,
+            "zeroPadding1",
+            new ArgsTestOverload(20, 1020553, "Hello!"));
     }
 }
 

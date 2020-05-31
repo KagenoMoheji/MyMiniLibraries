@@ -1,6 +1,7 @@
 package src.samples.method2.callback;
 
 import java.lang.reflect.*;
+import java.util.ArrayList;
 import src.samples.method2.callback.annotations.CallbackMethod;
 import src.samples.method2.callback.exceptions.CannotRunPrivateCallbackException;
 import src.samples.method2.callback.exceptions.NoAnnotationException;
@@ -64,5 +65,27 @@ public interface Callback {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public default ArrayList<String> getCallbackNames() {
+        /**
+         * @CallbackMethodが付いたコールバックのメソッド名のリストを取得する．
+         * ただし順不同．
+         */
+        ArrayList<String> callbackNames = null;
+        Method[] methods = this.getClass().getDeclaredMethods();
+        if(methods.length == 0) {
+            return callbackNames;
+        }
+        for(Method method: methods){
+            if(!method.isAnnotationPresent(CallbackMethod.class)) {
+                continue;
+            }
+            if(callbackNames == null) {
+                callbackNames = new ArrayList<String>();
+            }
+            callbackNames.add(method.getName());
+        }
+        return callbackNames;
     }
 }
