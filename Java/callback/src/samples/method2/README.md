@@ -42,7 +42,7 @@
         - Prepare type of arguments for callback method with Inner Class(ex. `ArgsForCallback`).
             - The modifier of Inner Class should be `public static`.
             - Inner Class should implement `CallbackArgsInterface`.
-            - Add arguments, and implement public constructor and private getters.
+            - Add arguments, and implement public constructor(which should get all arguments) and private getters.
         - Pepaere callback methods(ex. `callbackPrint()`, `callbackReturnString()`).
             - Add annotation `@CallbackMethod`.
             - Set the argument whose type is prepared with Inner Class.
