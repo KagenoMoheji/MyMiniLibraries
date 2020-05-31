@@ -92,12 +92,12 @@
             Callback callbackInstance = new CallbackSample();
 
             caller.callerSample(
-                callerInstance,
+                callbackInstance,
                 "callbackPrint",
                 new ArgsForCallback("Height of Tokyo Skytree[m]: ", 634));
 
             caller.callerSample(
-                callerInstance,
+                callbackInstance,
                 "callbackReturnString",
                 new ArgsForCallback("Height of Mt.Fuji[m]: ", 3776));
         }
