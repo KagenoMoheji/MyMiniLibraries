@@ -1,0 +1,16 @@
+@import "Common.scss";
+
+.counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.counter span {
+    margin: 0 5px;
+    font-size: 24px;
+}
+.counter button {
+    padding: 5px;
+    font-size: 24px;
+}
