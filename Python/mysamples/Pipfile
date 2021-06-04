@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+matplotlib = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+logging = "python -m mylogging.main.app"
+singleton = "python -m mysingleton.main.app"
+import = "python -m myimport.main.app"
+matplotlib = "python -m mymatplotlib.main.app"
+dict = "python -m mydict.main.app"
+unittest = "python -m myunittest.mytest.app"
