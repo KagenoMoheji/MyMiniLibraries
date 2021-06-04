@@ -4,7 +4,7 @@ import sys
 PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
 sys.path.append(PYPATH + "./../") # main・testディレクトリの場所．testディレクトリ下のモジュールからimportもあり得るため．
 import unittest
-from mytest_tools.myunittest import MyTestCase # カレントディレクトリからのimportは，sys.path.append()で上のディレクトリを指定してそこからの絶対Pimportできず，カレントディレクトリからの相対importでないといけない…？
+from mytest.mytest_tools.myunittest import MyTestCase
 
 
 def sample1(msg):
