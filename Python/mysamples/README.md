@@ -10,6 +10,6 @@ Python実装してきた中で自己流に実装した汎用的なモジュー�
 - [ ] mytimer
 - [ ] myunittest
 - [ ] myrequests
-- [ ] myexception
+- [x] myexception
 
 
