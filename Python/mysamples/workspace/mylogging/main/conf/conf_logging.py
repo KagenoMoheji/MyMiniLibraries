@@ -31,7 +31,7 @@ def CONF_LOGGER(filename):
                 "propagate": False
             },
             "modules": {
-                "level": "INFO",
+                "level": "WARNING",
                 "handlers": ["consoleHandler", "fileHandler"], # "handlers"から選択
                 "propagate": False
             }

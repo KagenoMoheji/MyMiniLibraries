@@ -1,0 +1,5 @@
+2021-06-06 01:28:00.330@app.py:INFO: Start app.
+2021-06-06 01:28:00.331@a.py:WARNING: hoge is dangerous.
+2021-06-06 01:28:29.280@app.py:INFO: Start app.
+2021-06-06 01:28:29.281@a.py:WARNING: hoge is dangerous.
+2021-06-06 01:28:29.281@a.py:ERROR: Attacked by fuga.

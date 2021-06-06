@@ -4,7 +4,7 @@ Python実装してきた中で自己流に実装した汎用的なモジュー�
 ### 一覧
 - [ ] mydict
 - [ ] myimport
-- [ ] mylogging
+- [x] mylogging
 - [ ] mymatplotlib
 - [ ] mysingleton
 - [ ] mytimer
