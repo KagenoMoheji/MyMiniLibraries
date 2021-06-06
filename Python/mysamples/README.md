@@ -2,7 +2,7 @@
 Python実装してきた中で自己流に実装した汎用的なモジュールのサンプルコードをまとめる．
 
 ### 一覧
-- [ ] mydict
+- [x] mydict
 - [ ] myimport
 - [x] mylogging
 - [ ] mymatplotlib
