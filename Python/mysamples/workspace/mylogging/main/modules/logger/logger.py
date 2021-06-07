@@ -4,9 +4,13 @@ import sys
 PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
 from logging import getLogger
 from logging.config import dictConfig
-from conf.conf_logging import CONF_LOGGER
 
-def init_logging(filename = None):
+def init_logging(CONF_LOGGER, filename = None):
+    '''
+    - Args
+        - CONF_LOGGER:func: loggingの辞書型設定を戻り地とする関数．
+        - filename:str: ログ出力ファイル名．ファイル出力したくない場合はNoneを．
+    '''
     NAME_FILEHANDLER = "fileHandler"
     conf_logger = CONF_LOGGER(filename)
 
