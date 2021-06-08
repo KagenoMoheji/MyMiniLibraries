@@ -49,12 +49,11 @@ class MyLogger(Singleton):
         if MyLogger.__MAP_LOGLEVEL[loglevel] < MyLogger.__MAP_LOGLEVEL[MyLogger.__loglevel]:
             return None
         now = dt.now()
-        msecs = now.microsecond
         log = MyLogger.__fmt_log.format(
             asctime = MyLogger.__fmt_date.format(
                 Y = now.year, m = now.month, d = now.day,
                 H = now.hour, M = now.minute, S = now.second),
-            msecs = int(msecs / pow(10, (6 - MyLogger.__len_msecs))),
+            msecs = int(now.microsecond / pow(10, (6 - MyLogger.__len_msecs))),
             appname = appname if appname else MyLogger.__appname,
             levelname = loglevel,
             message = msg)
