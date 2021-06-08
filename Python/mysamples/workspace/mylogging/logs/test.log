@@ -3,3 +3,23 @@
 2021-06-06 01:28:29.280@app.py:INFO: Start app.
 2021-06-06 01:28:29.281@a.py:WARNING: hoge is dangerous.
 2021-06-06 01:28:29.281@a.py:ERROR: Attacked by fuga.
+2021-06-09 03:31:21.441@app.py:INFO: Start app.
+2021-06-09 03:31:21.443@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:31:38.040@app.py:INFO: Start app.
+2021-06-09 03:31:38.041@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:31:46.621@app.py:INFO: Start app.
+2021-06-09 03:31:46.622@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:32:40.836@app.py:INFO: Start app.
+2021-06-09 03:32:40.836@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:33:34.402@app.py:INFO: Start app.
+2021-06-09 03:33:34.403@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:34:09.481@app.py:INFO: Start app.
+2021-06-09 03:34:09.481@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:34:19.656@app.py:INFO: Start app.
+2021-06-09 03:34:19.657@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:35:47.237@app.py:INFO: Start app.
+2021-06-09 03:35:47.237@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:37:45.849@app.py:INFO: Start app.
+2021-06-09 03:37:45.849@a.py:WARNING: hoge is dangerous.
+2021-06-09 03:38:07.618@app.py:INFO: Start app.
+2021-06-09 03:38:07.619@a.py:WARNING: hoge is dangerous.
