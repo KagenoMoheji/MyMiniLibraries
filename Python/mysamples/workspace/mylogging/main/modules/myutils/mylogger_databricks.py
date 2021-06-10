@@ -16,7 +16,18 @@ TZ_JST = timezone(timedelta(hours = 9), "JST")
 
 '''
 [メインコード側での使い方]
+APPNAME = "appname"
+FNAMES_LOG = {
+    "mylogger": "dbfs:/FileStore/logs/{}/mylogger.log".format(APPNAME) # FS_ROOT_SPARK + "/logs/{}/mylogger.log".format(APPNAME)
+}
+logger = MyLogger(
+    "INFO",
+    console = True,
+    fname = FNAMES_LOG["mylogger"],
+    appname = APPNAME)
 
+logger.info("infotest")
+logger.debug("debugtest")
 
 
 
@@ -108,6 +119,10 @@ class MyLogger():
         self.__fmt_log = fmt_log
         if re.fullmatch(r"^.*{msecs:0[1-9][0-9]*d}.*$", self.__fmt_log):
             self.__len_msecs = int(re.search(r"{msecs:0([1-9][0-9]*)d}", self.__fmt_log).group(1))
+            if self.__len_msecs > 6:
+                # マイクロ秒の6桁を超える桁数だったら⑥桁にする
+                self.__fmt_log = re.sub(r"{msec:0[1-9][0-9]*d)}", "{msecs:06d}", self.__fmt_log)
+                self.__len_msecs = 6
         else:
             self.__len_msecs = 3
         self.__fmt_date = fmt_date
