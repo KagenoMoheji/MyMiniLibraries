@@ -9,7 +9,7 @@ from modules.logger.logger import (
     init_logging,
     get_logger
 )
-from modules.logger.mylogger import MyLogger
+from modules.myutils.mylogger import MyLogger
 from modules.md_a.a import (
     func_warn, func_error
 )
