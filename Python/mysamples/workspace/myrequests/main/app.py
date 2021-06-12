@@ -12,11 +12,11 @@ def main():
         timeout_read = 30,
         cnt_retry_request = 3,
         interval_requests_sec = 3)
-    testPost(req)
+    test_post(req)
     
 
     
-def testPost(req):
+def test_post(req):
     try:
         headers = {
             "Accept": "application/json",
@@ -24,7 +24,7 @@ def testPost(req):
             "Authentication": "Bearer xxxxxx"
         }
         payload = {"id": 6}
-        url = "https://hoge.com"
+        url = "urlurlurlurlurlurlurlurl"
         res = req.post(url, headers, payload)
         if res.status_code != 204:
             raise RequestException("ステータスコードがエラーだぉ")
