@@ -47,6 +47,7 @@ class MyRequests:
             - info_req_local:dict: 
         '''
         info_req = self._get_info_req(info_req_local)
+        # TODO: get()呼び出す側でtry-catch囲んでもよいが，こちらで囲んで例外返すようにすべき？
         sess = self._generate_session(
             info_req["cnt_retry_request"],
             info_req["interval_requests_sec"])
@@ -65,6 +66,7 @@ class MyRequests:
             - info_req_local:dict: 
         '''
         info_req = self._get_info_req(info_req_local)
+        # TODO: get()呼び出す側でtry-catch囲んでもよいが，こちらで囲んで例外返すようにすべき？
         sess = self._generate_session(
             info_req["cnt_retry_request"],
             info_req["interval_requests_sec"])
@@ -83,6 +85,7 @@ class MyRequests:
             - info_req_local:dict: 
         '''
         info_req = self._get_info_req(info_req_local)
+        # TODO: get()呼び出す側でtry-catch囲んでもよいが，こちらで囲んで例外返すようにすべき？
         sess = self._generate_session(
             info_req["cnt_retry_request"],
             info_req["interval_requests_sec"])
