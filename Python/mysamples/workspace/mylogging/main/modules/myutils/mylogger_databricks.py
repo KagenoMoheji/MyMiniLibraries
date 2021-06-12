@@ -17,13 +17,16 @@ TZ_JST = timezone(timedelta(hours = 9), "JST")
 '''
 [メインコード側での使い方]
 APPNAME = "appname"
-FNAMES_LOG = {
-    "mylogger": "dbfs:/FileStore/logs/{}/mylogger.log".format(APPNAME) # FS_ROOT_SPARK + "/logs/{}/mylogger.log".format(APPNAME)
+PARAM_LOGS = {
+    "mylogger": {
+        "loglevel": "DEBUG",
+        "fname": "dbfs:/FileStore/logs/{}/mylogger.log".format(APPNAME) # FS_ROOT_SPARK + "/logs/{}/mylogger.log".format(APPNAME)
+    }
 }
 logger = MyLogger(
-    "INFO",
+    PARAM_LOGS["mylogger"]["loglevel"],
     console = True,
-    fname = FNAMES_LOG["mylogger"],
+    fname = PARAM_LOGS["mylogger"]["fname"],
     appname = APPNAME)
 
 logger.info("infotest")
