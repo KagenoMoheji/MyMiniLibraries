@@ -30,7 +30,7 @@ def CONF_LOGGER(filename):
                 "handlers": ["consoleHandler", "fileHandler"], # "handlers"から選択
                 "propagate": False
             },
-            "modules": {
+            "modules": { # パッケージでの指定もできるらしい．すごいね
                 "level": "WARNING",
                 "handlers": ["consoleHandler", "fileHandler"], # "handlers"から選択
                 "propagate": False
