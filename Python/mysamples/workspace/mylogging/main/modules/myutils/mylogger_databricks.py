@@ -7,7 +7,7 @@ from datetime import (
     timezone
 )
 import time
-from modules.myutils.mydbutils import (
+from modules.myutils.mydbutils import ( # 実際は"%run"でインポートさせてる．
     dbfs_path_spark2nonspark,
     dbutils_exists
 )
