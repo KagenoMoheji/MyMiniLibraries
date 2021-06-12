@@ -11,6 +11,7 @@ from modules.myutils.mydbutils import ( # 実際は"%run"でインポートさ�
     dbfs_path_spark2nonspark,
     dbutils_exists
 )
+from modules.myutils.mysingleton import Singleton # 実際は"%run"でインポートさせてる．
 
 TZ_JST = timezone(timedelta(hours = 9), "JST")
 
