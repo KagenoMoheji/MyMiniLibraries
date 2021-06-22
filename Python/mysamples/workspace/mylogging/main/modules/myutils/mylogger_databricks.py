@@ -101,7 +101,7 @@ class TmpLogStacks(Singleton):
 
 
 class MyLogger():
-    __DIR_TMP_LOGS = "dbfs:/FileStore/logs/tmp" # FS_ROOT_SPARK + "/logs/tmp"
+    # __DIR_TMP_LOGS = "dbfs:/FileStore/logs/tmp/" # FS_ROOT_SPARK + "/logs/tmp/"
     __MAP_LOGLEVEL = {
         "DEBUG": 1,
         "INFO": 2,
@@ -133,6 +133,7 @@ class MyLogger():
         self.__console = console
         self.__fname = fname
         self.__appname = appname
+        self.__DIR_TMP_LOGS = "/".join(self.__fname.split("/")[:-1]) + "/tmp/" # 共通の一時ファイル出力先を使うと，同時実行した別Notebookの終了時に一時ファイル出力が削除されてしまう懸念を避けるため．
 
         # (一時・最終)ログファイル出力先のディレクトリがなければ作っておく
         dbutils.fs.mkdirs(self.__DIR_TMP_LOGS)
