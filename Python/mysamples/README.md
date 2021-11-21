@@ -3,13 +3,13 @@ Python実装してきた中で自己流に実装した汎用的なモジュー�
 
 ### 一覧
 - [x] mydict
-- [ ] myimport
+- [x] myimport
 - [x] mylogging
 - [ ] mymatplotlib
 - [ ] mysingleton
 - [ ] mytimer
-- [ ] myunittest
-- [ ] myrequests
+- [x] myunittest
+- [x] myrequests
 - [x] myexception
 
 
