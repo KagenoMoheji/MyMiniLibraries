@@ -35,3 +35,6 @@
 2021-06-09 04:09:41.645@a.py:WARNING: hoge is dangerous.
 2021-06-09 04:09:53.935@app.py:INFO: Start app.
 2021-06-09 04:09:53.936@a.py:WARNING: hoge is dangerous.
+2021-11-21 16:25:45.775@app.py:INFO: Start app.
+2021-11-21 16:25:45.776@a.py:INFO: Run func_warn.
+2021-11-21 16:25:45.777@a.py:WARNING: hoge is dangerous.

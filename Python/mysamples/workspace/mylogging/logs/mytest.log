@@ -1,2 +1,4 @@
 2021-06-09 04:09:53.937@APPNAME:INFO: MyLogger info
 2021-06-09 04:09:53.938@app.py:ERROR: MyLogger error
+2021-11-21 16:25:45.778@APPNAME:INFO: MyLogger info
+2021-11-21 16:25:45.779@app.py:ERROR: MyLogger error
