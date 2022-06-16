@@ -1,10 +1,12 @@
 import inspect
 import os
 import sys
-PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
-sys.path.append(PYPATH + "./../") # main・testディレクトリの場所．testディレクトリ下のモジュールからimportもあり得るため．
+PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+ROOTPATH = "{}/./../main".format(PYPATH) # 本番コードの場所をimportのRootPathにする．本番コード内のモジュールimportが本番コードのRootPathを基準にしてるから．
+sys.path.append(ROOTPATH)
 import unittest
-from mytest.mytest_tools.myunittest import MyTestCase
+# mytest下にあるモジュールは相対インポートしてくることとする．
+from mytest_tools.myunittest import MyTestCase
 
 
 def sample1(msg):
