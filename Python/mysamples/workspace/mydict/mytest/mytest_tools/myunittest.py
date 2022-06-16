@@ -21,7 +21,10 @@ class MyTestCase(unittest.TestCase):
             ret = None
             try:
                 ret = func(*args, **kwargs)
+                # TODO: Failureが出たらそこで止まるのではなく，すべての試験を一周してから全体の結果を出す方法どうやる？
                 self.fail(msg = "No Exception!") # https://docs.python.org/ja/3/library/unittest.html#unittest.TestCase.fail
+            except unittest.TestCase.failureException as e:
+                raise e
             except Exception as e:
                 # エラー名の比較
                 self.assertEqual(
