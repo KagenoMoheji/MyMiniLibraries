@@ -1,8 +1,9 @@
 import inspect
 import os
 import sys
-PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
-sys.path.append(PYPATH + ".")
+PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+ROOTPATH = "{}/."
+sys.path.append(ROOTPATH)
 import re
 from conf.conf_logging import CONF_LOGGER
 from modules.logger.logger import (
@@ -20,7 +21,7 @@ def main():
     # アプリ全体で用いるロギングの初期設定とloggerオブジェクト取得
     init_logging(
         CONF_LOGGER,
-        PYPATH + "./../logs/test.log")
+        PYPATH + "/../logs/test.log")
     logger = get_logger(__name__)
 
     logger.info("Start app.")
@@ -32,7 +33,7 @@ def main():
 
     mylogger = MyLogger(
         "INFO",
-        fname = PYPATH + "./../logs/mytest.log")
+        fname = PYPATH + "/../logs/mytest.log")
     mylogger.debug("MyLogger debug")
     mylogger.info("MyLogger info")
     mylogger.error(

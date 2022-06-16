@@ -1,8 +1,9 @@
 import inspect
 import os
 import sys
-PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
-sys.path.append(PYPATH + ".")
+PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+ROOTPATH = "{}/."
+sys.path.append(ROOTPATH)
 from modules.myutils.myrequests import MyRequests
 from requests.exceptions import RequestException
 
