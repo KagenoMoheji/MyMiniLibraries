@@ -8,6 +8,6 @@ PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())
         - importできるPythonコードの範囲に制限をある程度設け，"mytest/"からテストコードを間違って呼び出すことを防げるから．
     - 本番リリースが無い個人開発とかで楽したいなら"main/"・"mytest/"の上にあるPJディレクトリをRootPathにしても良いかな．
 '''
-ROOTPATH = "{}/."
+ROOTPATH = "{}/.".format(PYPATH)
 sys.path.append(ROOTPATH)
 from modules.md_a.a import funcA

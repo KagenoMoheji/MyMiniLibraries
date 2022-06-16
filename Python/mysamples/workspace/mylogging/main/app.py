@@ -2,7 +2,7 @@ import inspect
 import os
 import sys
 PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-ROOTPATH = "{}/."
+ROOTPATH = "{}/.".format(PYPATH)
 sys.path.append(ROOTPATH)
 import re
 from conf.conf_logging import CONF_LOGGER

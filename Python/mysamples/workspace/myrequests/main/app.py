@@ -2,7 +2,7 @@ import inspect
 import os
 import sys
 PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-ROOTPATH = "{}/."
+ROOTPATH = "{}/.".format(PYPATH)
 sys.path.append(ROOTPATH)
 from modules.myutils.myrequests import MyRequests
 from requests.exceptions import RequestException
