@@ -21,7 +21,7 @@ class MyTestCase(unittest.TestCase):
             ret = None
             try:
                 ret = func(*args, **kwargs)
-                print("assertException: No Exception!")
+                self.fail(msg = "No Exception!") # https://docs.python.org/ja/3/library/unittest.html#unittest.TestCase.fail
             except Exception as e:
                 # エラー名の比較
                 self.assertEqual(
