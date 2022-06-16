@@ -3,7 +3,7 @@ import unittest
 import traceback
 
 class MyTestCase(unittest.TestCase):
-    def assertException(self, func, expect_exception):
+    def assertException(self, func, expect_exception, check_err_msg = False):
         '''
         - Args
             - func::例外処理テストをする関数．
@@ -28,19 +28,20 @@ class MyTestCase(unittest.TestCase):
                     expect_exception.__class__.__name__,
                     e.__class__.__name__)
                 
-                # エラー短文の比較
-                ## 完全一致より正規表現マッチングの方が良い．
-#                 self.assertEqual(
-#                     traceback.format_exception_only(type(expect_exception), expect_exception)[0].rstrip("\n"),
-#                     traceback.format_exception_only(type(e), e)[0].rstrip("\n"))
-                self.assertRegex(
-                    traceback.format_exception_only(type(e), e)[0]
-                        .replace("[", "#") # []のエスケープ対応が難しかったので，置換で対応．
-                        .replace("]", "#")
-                        .rstrip("\n"),
-                    "^{}$".format(traceback.format_exception_only(type(expect_exception), expect_exception)[0]
-                                  .replace("\[", "#") # []のエスケープ対応が難しかったので，置換で対応．
-                                  .replace("\]", "#")
-                                  .rstrip("\n")))
+                if check_err_msg:
+                    # エラー短文の比較
+                    ## 完全一致より正規表現マッチングの方が良い．
+                    # self.assertEqual(
+                    #     traceback.format_exception_only(type(expect_exception), expect_exception)[0].rstrip("\n"),
+                    #     traceback.format_exception_only(type(e), e)[0].rstrip("\n"))
+                    self.assertRegex(
+                        traceback.format_exception_only(type(e), e)[0]
+                            .replace("[", "#") # []のエスケープ対応が難しかったので，置換で対応．
+                            .replace("]", "#")
+                            .rstrip("\n"),
+                        "^{}$".format(traceback.format_exception_only(type(expect_exception), expect_exception)[0]
+                                    .replace("\[", "#") # []のエスケープ対応が難しかったので，置換で対応．
+                                    .replace("\]", "#")
+                                    .rstrip("\n")))
             return ret
         return run

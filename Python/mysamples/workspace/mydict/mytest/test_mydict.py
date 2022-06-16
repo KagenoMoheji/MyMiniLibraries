@@ -146,7 +146,8 @@ class TestValidateRequiredKeyexistType(MyTestCase):
                 raise err
         self.assertException(
             run_false1,
-            TypeError("Invalid type in list of key 'b'.")
+            TypeError("Invalid type in list of key 'b'."),
+            check_err_msg = True
         )()
         
     # @unittest.skip("テスト完了のためスキップ")
@@ -169,7 +170,8 @@ class TestValidateRequiredKeyexistType(MyTestCase):
                 raise err
         self.assertException(
             run_false2,
-            KeyError("Not found key 'c'.")
+            KeyError("Not found key 'c'."),
+            check_err_msg = True
         )()
         
     # @unittest.skip("テスト完了のためスキップ")
@@ -192,7 +194,8 @@ class TestValidateRequiredKeyexistType(MyTestCase):
                 raise err
         self.assertException(
             run_false3,
-            TypeError("Invalid type in key 'c'.")
+            TypeError("Invalid type in key 'c'."),
+            check_err_msg = True
         )()
     
     # @unittest.skip("テスト完了のためスキップ")
@@ -223,7 +226,8 @@ class TestValidateRequiredKeyexistType(MyTestCase):
                 raise err
         self.assertException(
             run_false4,
-            KeyError("Not found key 'd'.")
+            KeyError("Not found key 'd'."),
+            check_err_msg = True
         )()
     
     # @unittest.skip("テスト完了のためスキップ")
@@ -255,7 +259,8 @@ class TestValidateRequiredKeyexistType(MyTestCase):
                 raise err
         self.assertException(
             run_false5,
-            KeyError("Found other keys in the same layer of key '\[category_name\]'.")
+            KeyError("Found other keys in the same layer of key '\[category_name\]'."),
+            check_err_msg = True
         )()
         
     # @unittest.skip("テスト完了のためスキップ")
@@ -276,7 +281,8 @@ class TestValidateRequiredKeyexistType(MyTestCase):
                 raise err
         self.assertException(
             run_false6,
-            KeyError("Not found key 'b'.")
+            KeyError("Not found key 'b'."),
+            check_err_msg = True
         )()
 
 
