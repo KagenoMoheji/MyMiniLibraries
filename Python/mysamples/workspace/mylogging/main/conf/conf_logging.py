@@ -24,7 +24,7 @@ def CONF_LOGGER(filename):
             }
         },
         "handlers": {
-            "consoleHandler": { # (**)INFO以下はstdoutで出力
+            "consoleHandler": { # (**)INFO以下(CRITICAL>ERROR>WARNING>INFO>DEBUG)はstdoutで出力
                 "class": "logging.StreamHandler",
                 # "level": "INFO", # こっちだと「INFO以上」になってしまう
                 "filters": ["infoandunder"], # こっちで「INFO以下」でログ出力するようにする
@@ -38,6 +38,11 @@ def CONF_LOGGER(filename):
                 "stream": "ext://sys.stderr"
             },
             "fileHandler": {
+                # MEMO:
+                #   - uwsgiやlogroateにより1つのログファイルから日毎とかでローテートされる方式の場合，`logging.FileHandler`ではログファイルの切り替えができずログ出力が継続できなくなってしまう．
+                #   - そこで代わりに`logging.handlers.WatchedFileHandler`を使うことで解決できる．
+                #   - ただしWatchedFileHandlerはWindowsでの使用は非推奨．
+                #   - https://docs.python.org/ja/3/library/logging.handlers.html#watchedfilehandler
                 "class": "logging.FileHandler",
                 "level": "INFO",
                 "formatter": "default", # "formatters"から選択
@@ -55,7 +60,7 @@ def CONF_LOGGER(filename):
                 "handlers": ["consoleHandler", "stderrHandler", "fileHandler"], # "handlers"から選択
                 "propagate": False
             },
-            # "modules": { # パッケージでの指定もできるらしい．すごいね
+            # "modules.myutils": { # パッケージでの指定もできるらしい．すごいね
             #     "level": "WARNING",
             #     "handlers": ["consoleHandler", "stderrHandler", "fileHandler"], # "handlers"から選択
             #     "propagate": False
