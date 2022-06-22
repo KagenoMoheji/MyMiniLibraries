@@ -1,5 +1,6 @@
 from modules.logger.logger_logic import (
-    LoggingFilterInfoAndUnder
+    LoggingFilterInfoAndUnder,
+    LoggingFormatterAsJST
 )
 
 
@@ -14,6 +15,7 @@ def CONF_LOGGER(filename):
         "disable_existing_loggers": False,
         "formatters": {
             "default": {
+                "()": LoggingFormatterAsJST, # OS側でタイムゾーン設定しない場合に使う．
                 "format": "%(asctime)s.%(msecs)03d@%(filename)s:%(levelname)s: %(message)s",
                 "datefmt": "%Y-%m-%d %H:%M:%S"
             }
