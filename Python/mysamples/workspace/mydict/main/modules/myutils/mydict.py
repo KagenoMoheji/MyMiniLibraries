@@ -24,7 +24,7 @@ class MyDict(dict):
         - Args
             - defdict_required:dict: "{key1: {key2_1: {key3: type, key2_2: type}"構造の必須キーの辞書型定義．
         - Returns
-            - res:boolean: 必須キーがすべて存在していた場合True．
+            - res:boolean: 必須キーがすべて存在し，型違反が無い場合True．
             - err:Exception: res=Falseの際に渡されるエラーオブジェクト．
         '''
         for key in defdict_required:
@@ -68,8 +68,12 @@ class MyDict(dict):
             
         return True, None
     
-    def show(self, indent = 2):
+    def format_json(self, indent = 4, ensure_ascii = False):
         '''
         https://qiita.com/Hyperion13fleet/items/7129623ab32bdcc6e203#json%E3%82%92%E7%B6%BA%E9%BA%97%E3%81%AB%E8%A1%A8%E7%A4%BA%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%ABdump%E3%81%99%E3%82%8B
         '''
-        return json.dumps(self, indent = indent, ensure_ascii = False)
+        return json.dumps(self, indent = indent, ensure_ascii = ensure_ascii)
+    
+    def output_json(self, fname, mode = "w", indent = 4, ensure_ascii = False):
+        with open(fname, mode = mode, encoding = "utf8") as f:
+            f.write(self.format_json(indent = indent, ensure_ascii = ensure_ascii))
