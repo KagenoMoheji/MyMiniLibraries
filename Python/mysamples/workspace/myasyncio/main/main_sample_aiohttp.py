@@ -448,7 +448,88 @@ async def download_jsons_weather_forecast_async(
     ## https://stackoverflow.com/a/63364551/15842506
     async with aiohttp.ClientSession(trust_env = True) as sess: # MEMO: `conn_timeout = timeout_conn`がなんか非推奨になっててtimeoutに集約されてる…
         res = await asyncio.gather(*[
-            run(sess, info_pref, dir_output_rawdata, timeout_read, cnt_retry_req, interval_req_sec)
+            run(
+                sess,
+                info_pref,
+                dir_output_rawdata,
+                timeout_read,
+                cnt_retry_req,
+                interval_req_sec
+            )
+            for info_pref in info_prefs
+        ])
+        return res
+
+
+
+async def download_jsons_weather_forecast_async_with_semaphore(
+    info_prefs,
+    dir_output_rawdata,
+    timeout_conn = 10,
+    timeout_read = 30,
+    cnt_retry_req = 3,
+    interval_req_sec = 3):
+    async def run(
+        sess,
+        info_pref,
+        dir_output_rawdata,
+        timeout_read,
+        cnt_retry_req,
+        interval_req_sec,
+        async_limit = 1):
+        '''
+        指定した都道府県の天気予報のjsonをダウンロードする．
+        - Args
+            - sess:aiohttp.ClientSession: 
+            - info_pref:dict: ある都道府県に関する辞書型の下記情報
+                - pref_code:str: 
+            - timeout_read:float: 
+            - cnt_retry_req:int: 
+            - interval_req_sec:float: 
+        '''
+        with await asyncio.Semaphore(async_limit):
+            url = "https://www.jma.go.jp/bosai/forecast/data/forecast/{}.json".format(info_pref["pref_code"])
+            for i in range(cnt_retry_req):
+                try:
+                    async with sess.get(url, timeout = timeout_read) as res:
+                        status = res.status
+                        rawdata = await res.json()
+                        with open(
+                            "{0}/rawdata_weather_forecast_pref{1}.json".format(dir_output_rawdata, info_pref["pref_code"]),
+                            "w",
+                            encoding = "utf8"
+                        ) as f:
+                            f.write(json.dumps(
+                                rawdata,
+                                indent = 4,
+                                ensure_ascii = False
+                            ))
+                        return {
+                            "pref_code": info_pref["pref_code"],
+                            "rawdata": rawdata
+                        }
+                except Exception as e:
+                    if i == cnt_retry_req - 1:
+                        # リトライ回数上限に到達した上での例外発生の場合
+                        raise type(e)("Failed in downloading from url '{url}' after {cnt_retry} retrying. Detail: {err}".format(
+                            url = url,
+                            cnt_retry = cnt_retry_req,
+                            err = traceback.format_exc()
+                        ))
+                    time.sleep(interval_req_sec)
+    # WARNING: `trust_env=True`にしないとリクエスト通らない
+    ## https://stackoverflow.com/a/63364551/15842506
+    async with aiohttp.ClientSession(trust_env = True) as sess: # MEMO: `conn_timeout = timeout_conn`がなんか非推奨になっててtimeoutに集約されてる…
+        res = await asyncio.gather(*[
+            run(
+                sess,
+                info_pref,
+                dir_output_rawdata,
+                timeout_read,
+                cnt_retry_req,
+                interval_req_sec,
+                async_limit = len(info_prefs)
+            )
             for info_pref in info_prefs
         ])
         return res
