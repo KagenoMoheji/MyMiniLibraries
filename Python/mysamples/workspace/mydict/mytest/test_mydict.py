@@ -284,6 +284,27 @@ class TestValidateRequiredKeyexistType(MyTestCase):
             KeyError("Not found key 'b'."),
             check_err_msg = True
         )()
+        
+    @unittest.skip("定義外のキーがあっても問題ないとするためスキップ")
+    def test_false7(self):
+        def run_false7():
+            defdict = {
+                "a": str,
+                "c": int
+            }
+            d = {
+                "a": "hoge",
+                "b": "fuga", # ここ
+                "c": 23
+            }
+            res, err = MyDict(d).validate_required_keyexist_type(defdict)
+            if not res:
+                raise err
+        self.assertException(
+            run_false7,
+            KeyError("Not found key 'b'."),
+            check_err_msg = True
+        )()
 
 
 if __name__ == "__main__":
