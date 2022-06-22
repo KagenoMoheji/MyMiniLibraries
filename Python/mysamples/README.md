@@ -6,10 +6,13 @@ Python実装してきた中で自己流に実装した汎用的なモジュー�
 - [x] myimport
 - [x] mylogging
 - [ ] mymatplotlib
-- [ ] mysingleton
+    - サンプルメインコードがない
+- [x] mysingleton
 - [ ] mytimer
+    - サンプルメインコードがない
 - [x] myunittest
 - [x] myrequests
 - [x] myexception
-
+- [ ] myconst
+- [x] myasyncio
 

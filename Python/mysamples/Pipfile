@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 matplotlib = "*"
 requests = "*"
+aiohttp = "*"
 
 [dev-packages]
 
@@ -20,3 +21,4 @@ mymatplotlib = "python -m workspace.mymatplotlib.main.app"
 mydict = "python -m workspace.mydict.mytest.test_mydict"
 myunittest = "python -m workspace.myunittest.mytest.app"
 myexception = "python -m workspace.myexception.main.app"
+myconst01 = "python -m workspace.myconst.main.app01"
