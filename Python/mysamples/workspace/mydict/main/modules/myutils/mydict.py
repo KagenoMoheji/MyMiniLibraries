@@ -74,6 +74,6 @@ class MyDict(dict):
         '''
         return json.dumps(self, indent = indent, ensure_ascii = ensure_ascii)
     
-    def output_json(self, fname, mode = "w", indent = 4, ensure_ascii = False):
-        with open(fname, mode = mode, encoding = "utf8") as f:
+    def output_json(self, fname, mode = "w", indent = 4, ensure_ascii = False, encoding = "utf8"):
+        with open(fname, mode = mode, encoding = encoding) as f:
             f.write(self.format_json(indent = indent, ensure_ascii = ensure_ascii))
