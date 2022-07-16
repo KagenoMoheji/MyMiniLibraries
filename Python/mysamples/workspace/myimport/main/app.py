@@ -9,5 +9,6 @@ PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())
     - 本番リリースが無い個人開発とかで楽したいなら"main/"・"mytest/"の上にあるPJディレクトリをRootPathにしても良いかな．
 '''
 ROOTPATH = "{}/.".format(PYPATH)
+MODNAME = inspect.getfile(inspect.currentframe()).split("/")[-1]
 sys.path.append(ROOTPATH)
 from modules.md_a.a import funcA
