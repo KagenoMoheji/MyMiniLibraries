@@ -1,5 +1,14 @@
+import inspect
+import os
+import sys
+PYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+ROOTPATH = "{}/.".format(PYPATH)
+sys.path.append(ROOTPATH)
+
 import pandas as pd
-from modules.mysingleton import Singleton
+
+from modules.myutils.mysingleton import Singleton
+
 class JanomeTokenizer(Singleton):
     tokenizer = None
 
